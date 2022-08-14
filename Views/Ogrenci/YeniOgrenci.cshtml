@@ -1,0 +1,70 @@
+﻿@model OgrenciNotMvc.Models.EntityFramework.TblOgrenciler
+@{
+    ViewBag.Title = "YeniOgrenci";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" class="form-group">
+    <div>
+        <label>Öğrenci Adı</label>
+        <input type="text" class="form-control" name="OgrAd" />
+    </div>
+    <div style="margin-top:10px">
+        <label>Öğrenci Soyadı</label>
+        <input type="text" class="form-control" name="OgrSoyad" />
+    </div>
+    <div style="margin-top:10px">
+        <label>Öğrenci Fotoğrafı</label>
+        <input type="text" class="form-control" name="OgrFotograf" />
+    </div>
+    <div style="margin-top:10px">
+        <label>Öğrenci Cinisiyet</label>
+        <input type="text" class="form-control" name="OgrCinsiyet" />
+    </div>
+    @* Dropdown List kullanımları*@
+    @*<div style="margin-top:10px">
+            <label>Şehir Seçimi</label>
+            @Html.DropDownList("Şehirler",
+           new[]
+           {
+               new SelectListItem(){Value="1",Text="Ankara"},
+               new SelectListItem(){Value="2",Text="İStanbul"},
+               new SelectListItem(){Value="3",Text="İzmir"},
+               new SelectListItem(){Value="4",Text="Bursa"}
+           },"Şehir Seçiniz...", new {@class="form-control"})
+
+        </div>
+        <div style="margin-top:10px">
+
+                <label>Film Seçin</label>
+                <select id="MovieType" name="MovieType">
+
+                    <option value="0">Aksiyon</option>
+                    <option value="1">Drama</option>
+                    <option value="2">Romantik Komedi</option>
+                    <option value="3">Bilim Kurgu</option>
+                    <option value="4">Animasyon</option>
+
+                </select>
+
+        </div>*@
+    @*<div>
+        @using (Html.BeginForm("CategoryChosen", "Home", FormMethod.Get))
+         {
+
+
+                 @Html.DropDownList("DersAd")
+         }
+           @Html.DropDownList("DersAd",null,"Ders Seçin", new { @class="form-control"})
+         </div>*@
+    <div style="margin-top:10px">
+        <label>Öğrenci Kulüp</label>
+       @Html.DropDownListFor(m => m.TblKulupler.KulupID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+    </div>
+    
+
+    <div style="margin-top:10px">
+        <button class="btn btn-primary">Öğrenci Ekle</button>
+    </div>
+</form>
+
